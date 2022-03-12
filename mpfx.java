@@ -52,3 +52,13 @@ public class Controller implements Initializable{
 				songs.add(file);
 			}
 		}
+
+		media = new Media(songs.get(songNumber).toURI().toString());
+		mediaPlayer = new MediaPlayer(media);
+		
+		songLabel.setText(songs.get(songNumber).getName());
+		
+		for(int i = 0; i < speeds.length; i++) {
+			
+			speedBox.getItems().add(Integer.toString(speeds[i])+"%");
+		}
