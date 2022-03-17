@@ -96,3 +96,23 @@ public class Controller implements Initializable{
 		songProgressBar.setStyle("-fx-accent: #00FF00;");
 	}
 
+	public void playMedia() {
+		
+		beginTimer();
+		changeSpeed(null);
+		mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);
+		mediaPlayer.play();
+	}
+	
+	public void pauseMedia() {
+		
+		cancelTimer();
+		mediaPlayer.pause();
+	}
+	
+	public void resetMedia() {
+		
+		songProgressBar.setProgress(0);
+		mediaPlayer.seek(Duration.seconds(0));
+	}
+	
