@@ -4,9 +4,28 @@
 package application;
 
 import java.io.File;
- 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Slider;
+import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
+
 public class Controller implements Initializable{
-    
+	
 	@FXML
 	private Pane pane;
 	@FXML
@@ -51,14 +70,4 @@ public class Controller implements Initializable{
 				
 				songs.add(file);
 			}
-		}
-
-		media = new Media(songs.get(songNumber).toURI().toString());
-		mediaPlayer = new MediaPlayer(media);
-		
-		songLabel.setText(songs.get(songNumber).getName());
-		
-		for(int i = 0; i < speeds.length; i++) {
-			
-			speedBox.getItems().add(Integer.toString(speeds[i])+"%");
 		}
