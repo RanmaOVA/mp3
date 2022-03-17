@@ -85,3 +85,14 @@ public class Controller implements Initializable{
 		speedBox.setOnAction(this::changeSpeed);
 		
 		volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
+				
+				mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);			
+			}
+		});
+		
+		songProgressBar.setStyle("-fx-accent: #00FF00;");
+	}
+
